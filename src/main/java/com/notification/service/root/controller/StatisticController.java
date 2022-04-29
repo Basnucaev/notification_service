@@ -22,15 +22,15 @@ public class StatisticController {
         this.statisticService = statisticService;
     }
 
-    @GetMapping("/statistics")
-    public ResponseEntity<List<Statistic>> getStatisticForAllMailings() {
-        List<Statistic> statistics = statisticService.getStatisticForAllMailings();
-        return new ResponseEntity<>(statistics, HttpStatus.OK);
-    }
-
     @GetMapping("/statistics/{mailingId}")
     public ResponseEntity<Statistic> getStatisticByMailingId(@PathVariable Long mailingId) {
         Statistic statistic = statisticService.getStatisticByMailingId(mailingId);
         return new ResponseEntity<>(statistic, HttpStatus.OK);
+    }
+
+    @GetMapping("/statistics")
+    public ResponseEntity<List<Statistic>> getStatisticForAllMailings() {
+        List<Statistic> statistics = statisticService.getStatisticForAllMailings();
+        return new ResponseEntity<>(statistics, HttpStatus.OK);
     }
 }

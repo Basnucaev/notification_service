@@ -53,6 +53,6 @@ public class ClientController {
     @DeleteMapping("/clients/{id}")
     public ResponseEntity<String> deleteClientById(@PathVariable Long id) {
         clientService.deleteClientById(id);
-        return new ResponseEntity<>("Mailing with id= " + id + " was deleted", HttpStatus.OK);
+        return new ResponseEntity<>("Client with id= " + id + " was deleted", HttpStatus.OK);
     }
 }
