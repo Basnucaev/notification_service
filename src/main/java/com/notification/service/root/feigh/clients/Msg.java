@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Msg {
-    private Integer id;
+    private Long id;
     private String phone;
     private String text;
 }
