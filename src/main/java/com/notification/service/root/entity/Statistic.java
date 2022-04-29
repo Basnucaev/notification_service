@@ -3,6 +3,7 @@ package com.notification.service.root.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Statistic {
 
     @Id
