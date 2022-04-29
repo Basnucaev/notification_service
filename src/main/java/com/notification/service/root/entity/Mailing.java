@@ -1,18 +1,18 @@
 package com.notification.service.root.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.notification.service.root.entity.enumeration.SentStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "mailing")
+@Table(name = "mailing", indexes = @Index(columnList = "sent_status, start_mailing_date", name = "index_mailing"))
 @NoArgsConstructor
 @Getter
 @Setter
@@ -35,8 +35,9 @@ public class Mailing {
     @Column(name = "end_mailing_date")
     private LocalDateTime endMailingDate;
 
-    @Column(name = "is_sent")
-    private boolean isSent;
+    @Column(name = "sent_status")
+    @Enumerated(value = EnumType.STRING)
+    private SentStatus sentStatus;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "mailing")
     private List<Message> message = new ArrayList<>();
@@ -46,11 +47,12 @@ public class Mailing {
     private Statistic statistic;
 
     public Mailing(LocalDateTime startMailingDate, String textOfMessage, String mobileOperatorCode,
-                   LocalDateTime endMailingDate, List<Message> message) {
+                   LocalDateTime endMailingDate, SentStatus sentStatus, List<Message> message) {
         this.startMailingDate = startMailingDate;
         this.textOfMessage = textOfMessage;
         this.mobileOperatorCode = mobileOperatorCode;
         this.endMailingDate = endMailingDate;
+        this.sentStatus = sentStatus;
         this.message = message;
     }
 
