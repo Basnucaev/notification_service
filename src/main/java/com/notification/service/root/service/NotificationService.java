@@ -10,4 +10,6 @@ public interface NotificationService {
     List<Client> getClientsWhoseOperatorCodeMatchesMailingOperatorCode(String operatorCode);
 
     void startMailing(List<Client> clients, Mailing mailing);
+
+    void checkForUnsentMailings();
 }

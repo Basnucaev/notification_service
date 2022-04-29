@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class MailingNotification implements MailingSubject {
     private List<Client> clients;
-    private Mailing currentMailing;
 
     private final NotificationService notificationService;
 
