@@ -67,12 +67,16 @@ class NotificationServiceTest {
         // given
         Mailing mailing = new Mailing(LocalDateTime.now().minusHours(1L), "0", "0",
                 LocalDateTime.now().plusHours(1L), SentStatus.SENT, Collections.emptyList());
+        mailing.setId(1L);
+
         Client client = new Client("0", "0", "0",
                 Collections.emptyList());
 
         List<Client> clients = List.of(client);
+
         Message messageWithId = new Message(LocalDateTime.now(), false, mailing, client);
         messageWithId.setId(1L);
+
         ApiResponse apiResponse = new ApiResponse(1, HttpStatus.OK);
 
         when(messageRepository.save(any())).thenReturn(messageWithId);
@@ -92,6 +96,8 @@ class NotificationServiceTest {
         // given
         Mailing mailing = new Mailing(LocalDateTime.now().minusHours(2L), "0", "0",
                 LocalDateTime.now().minusHours(1L), SentStatus.SENT, Collections.emptyList());
+        mailing.setId(1L);
+
         Client client = new Client("0", "0", "0",
                 Collections.emptyList());
         List<Client> clients = List.of(client);

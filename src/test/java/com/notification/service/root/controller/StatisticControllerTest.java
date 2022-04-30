@@ -42,7 +42,7 @@ class StatisticControllerTest {
                     "     \"mobileOperatorCode\": \"321\",\n" +
                     "     \"endMailingDate\": \"2021-04-23T18:25:43\",\n" +
                     "     \"message\": [],\n" +
-                    "     \"sent\": \"SENT\"\n" +
+                    "     \"sentStatus\": \"SENT\"\n" +
                     "     }\n" +
                     "}";
     private final String statisticsJSON =
@@ -59,7 +59,7 @@ class StatisticControllerTest {
                     "          \"mobileOperatorCode\": \"321\",\n" +
                     "          \"endMailingDate\": \"2021-04-23T18:25:43\",\n" +
                     "          \"message\": [],\n" +
-                    "          \"sent\": \"SENT\"\n" +
+                    "          \"sentStatus\": \"SENT\"\n" +
                     "     }\n" +
                     "}\n" +
                     "]";

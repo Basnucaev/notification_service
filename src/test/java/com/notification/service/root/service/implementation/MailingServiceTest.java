@@ -37,8 +37,8 @@ class MailingServiceTest {
     @Test
     void shouldGetMailingById() {
         // given
-        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(), SentStatus.SENT,
-                Collections.emptyList());
+        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(),
+                SentStatus.SENT, Collections.emptyList());
 
         when(mailingRepository.findById(anyLong())).thenReturn(Optional.of(mailing));
 
@@ -54,8 +54,8 @@ class MailingServiceTest {
     void shouldGetAllMailings() {
         // given
         List<Mailing> mailings = List.of(
-                new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(), SentStatus.SENT,
-                        Collections.emptyList()));
+                new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(),
+                        SentStatus.SENT, Collections.emptyList()));
         when(mailingRepository.findAll()).thenReturn(mailings);
 
         // when
@@ -69,8 +69,8 @@ class MailingServiceTest {
     @Test
     void shouldSaveMailing() {
         // given
-        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(), SentStatus.SENT,
-                Collections.emptyList());
+        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(),
+                SentStatus.SENT, Collections.emptyList());
         when(mailingRepository.save(mailing)).thenReturn(mailing);
 
         // when
@@ -83,8 +83,8 @@ class MailingServiceTest {
     @Test
     void shouldUpdateMailing() {
         // given
-        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(), SentStatus.SENT,
-                Collections.emptyList());
+        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(),
+                SentStatus.SENT, Collections.emptyList());
         mailing.setId(1L);
 
         when(mailingRepository.save(mailing)).thenReturn(mailing);
@@ -100,8 +100,8 @@ class MailingServiceTest {
     @Test
     void shouldDeleteMailingById() {
         // given
-        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(), SentStatus.SENT,
-                Collections.emptyList());
+        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(),
+                SentStatus.SENT, Collections.emptyList());
         when(mailingRepository.findById(anyLong())).thenReturn(Optional.of(mailing));
 
         // when
@@ -126,8 +126,8 @@ class MailingServiceTest {
     @Test
     void shouldThrowEntityNotSavedExceptionWhenTryingToSaveEntityWithNotNullId() {
         // given
-        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(), SentStatus.SENT,
-                Collections.emptyList());
+        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(),
+                SentStatus.SENT, Collections.emptyList());
         mailing.setId(1L);
 
         // when / then
@@ -139,8 +139,8 @@ class MailingServiceTest {
     @Test
     void shouldThrowEntityNotUpdatedExceptionWhenTryingToUpdateEntityWithNullId() {
         // given
-        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(), SentStatus.SENT,
-                Collections.emptyList());
+        Mailing mailing = new Mailing(LocalDateTime.now(), "0", "0", LocalDateTime.now(),
+                SentStatus.SENT, Collections.emptyList());
 
         // when / then
         assertThatThrownBy(() -> mailingService.updateMailing(mailing))
