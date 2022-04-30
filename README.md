@@ -16,4 +16,8 @@
 - Запросы отправки сообщений на внешнее API (https://probe.fbrq.cloud/v1)
 - SwaggerUI страница с информацией о контроллерах
 
-
+## Установка приложения
+- `git clone https://github.com/Basnucaev/notification_service.git`
+- `Подставьте свои значения в application.properties`
+- `Запустите NotificationServiceApplication.class`
+- Приложене должно быть запущено на локальном сервере `http://localhost:8080/
