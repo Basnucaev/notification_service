@@ -1,0 +1,306 @@
+openapi: 3.0.1
+info:
+  title: Notification Service
+  description: >-
+    The service is needed in order to create mailings, add clients to the
+    database and launch mailings with a message for suitable clients. Clients
+    for mailing are selected by the code of the mobile operator. You can view
+    the statistics of sent messages for each individual mailing list or for all
+    mailings at once.
+  version: "1.0"
+  contact:
+    name: Notification Service / Abdulla Basnucaev
+    url: 'https://vk.com/basnucaev'
+    email: basnucaev0l@gmail.com
+servers:
+- url: http://localhost:8080
+  description: локальный сервер
+paths:
+  /api/v1/mailing:
+    get:
+      tags:
+      - mailing-controller
+      summary: Возвращает все рассылки
+      operationId: getAllMailings
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Mailing'
+    put:
+      tags:
+      - mailing-controller
+      summary: Обновляет рассылку
+      operationId: updateMailing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mailing'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Mailing'
+    post:
+      tags:
+      - mailing-controller
+      summary: Добавляет рассылку
+      operationId: saveMailing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mailing'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Mailing'
+  /api/v1/clients:
+    get:
+      tags:
+      - client-controller
+      summary: Возвращает всех клиентов
+      operationId: getAllClients
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Client'
+    put:
+      tags:
+      - client-controller
+      summary: Обновляет клиента
+      operationId: updateClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Client'
+    post:
+      tags:
+      - client-controller
+      summary: Добавляет клиента
+      operationId: saveClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Client'
+  /api/v1/statistics:
+    get:
+      tags:
+      - statistic-controller
+      summary: Возвращает статистику всех рассылок
+      operationId: getStatisticForAllMailings
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Statistic'
+  /api/v1/statistics/{mailingId}:
+    get:
+      tags:
+      - statistic-controller
+      summary: Возвращает статиску по ID рассылки
+      operationId: getStatisticByMailingId
+      parameters:
+      - name: mailingId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Statistic'
+  /api/v1/mailing/{id}:
+    get:
+      tags:
+      - mailing-controller
+      summary: Возвращает рассылку по ID
+      operationId: getMailingById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Mailing'
+    delete:
+      tags:
+      - mailing-controller
+      summary: Удаляет рассылку по ID
+      operationId: deleteMailingById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: string
+  /api/v1/clients/{id}:
+    get:
+      tags:
+      - client-controller
+      summary: Возвращает клиента по ID
+      operationId: getClientById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Client'
+    delete:
+      tags:
+      - client-controller
+      summary: Удаляет клиента по ID
+      operationId: deleteClientById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: string
+components:
+  schemas:
+    Mailing:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        startMailingDate:
+          type: string
+          format: date-time
+        textOfMessage:
+          type: string
+        mobileOperatorCode:
+          type: string
+        endMailingDate:
+          type: string
+          format: date-time
+        sentStatus:
+          type: string
+          enum:
+          - SENT
+          - UNSENT
+          - ERROR
+          - NO_CLIENTS_FOR_SENDING
+        message:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sendingTime:
+          type: string
+          format: date-time
+        hasBeenSent:
+          type: boolean
+    Client:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        phoneNumber:
+          type: string
+        mobileOperatorCode:
+          type: string
+        teg:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    Statistic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sentMessages:
+          type: integer
+          format: int32
+        unsentMessages:
+          type: integer
+          format: int32
+        allMessages:
+          type: integer
+          format: int32
+        mailing:
+          $ref: '#/components/schemas/Mailing'

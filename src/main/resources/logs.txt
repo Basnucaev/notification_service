@@ -513,3 +513,91 @@
 2022-04-30 08:29:12.964  INFO 40360 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-04-30 08:29:12.967  INFO 40360 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-04-30 08:29:12.974  INFO 40360 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-30 11:02:35.161  INFO 35456 --- [main] c.n.s.r.NotificationServiceApplication   : Starting NotificationServiceApplication using Java 17.0.1 on DESKTOP-E403BVB with PID 35456 (C:\Users\6\Desktop\Spring_way\notification_service\notification_service\target\classes started by 6 in C:\Users\6\Desktop\Spring_way\notification_service\notification_service)
+2022-04-30 11:02:35.164  INFO 35456 --- [main] c.n.s.r.NotificationServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-04-30 11:02:36.039  INFO 35456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-30 11:02:36.108  INFO 35456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
+2022-04-30 11:02:36.296  INFO 35456 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6c9e43dc-068a-32e1-80ec-26cb004fe769
+2022-04-30 11:02:36.671  INFO 35456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-30 11:02:36.681  INFO 35456 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-30 11:02:36.681  INFO 35456 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-04-30 11:02:36.821  INFO 35456 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-30 11:02:36.821  INFO 35456 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1594 ms
+2022-04-30 11:02:37.017  INFO 35456 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-30 11:02:37.084  INFO 35456 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-04-30 11:02:37.266  INFO 35456 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-30 11:02:37.408  INFO 35456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-30 11:02:37.572  INFO 35456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-30 11:02:37.588  INFO 35456 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-30 11:02:38.232  INFO 35456 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-30 11:02:38.238  INFO 35456 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-30 11:02:38.653  WARN 35456 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-30 11:02:39.227  INFO 35456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-30 11:02:39.317  INFO 35456 --- [main] c.n.s.r.NotificationServiceApplication   : Started NotificationServiceApplication in 4.713 seconds (JVM running for 5.619)
+2022-04-30 11:42:51.575  WARN 35456 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m43s575ms200µs700ns).
+2022-04-30 12:06:47.157  INFO 35456 --- [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-30 12:06:47.159  INFO 35456 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-30 12:06:47.184  INFO 35456 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 25 ms
+2022-04-30 12:06:47.224  INFO 35456 --- [http-nio-8080-exec-5] c.n.s.r.s.i.MailingServiceImpl           : method "getAllMailings" | returned list of mailings
+2022-04-30 12:06:58.873  INFO 35456 --- [http-nio-8080-exec-4] c.n.s.r.s.i.MailingServiceImpl           : method "getMailingById" | returned mailing with id= 5
+2022-04-30 12:07:06.631  INFO 35456 --- [http-nio-8080-exec-3] c.n.s.r.s.i.MailingServiceImpl           : method "getAllMailings" | returned list of mailings
+2022-04-30 12:12:50.405  INFO 35456 --- [http-nio-8080-exec-6] c.n.s.r.s.i.MailingServiceImpl           : method "getMailingById" | mailing with id= 223 not found
+2022-04-30 12:31:46.070  INFO 35456 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-30 12:31:46.090  INFO 35456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-30 12:31:46.098  INFO 35456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-30 12:36:30.513  INFO 40840 --- [main] c.n.s.r.NotificationServiceApplication   : Starting NotificationServiceApplication using Java 17.0.1 on DESKTOP-E403BVB with PID 40840 (C:\Users\6\Desktop\Spring_way\notification_service\notification_service\target\classes started by 6 in C:\Users\6\Desktop\Spring_way\notification_service\notification_service)
+2022-04-30 12:36:30.517  INFO 40840 --- [main] c.n.s.r.NotificationServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-04-30 12:36:31.451  INFO 40840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-30 12:36:31.509  INFO 40840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 4 JPA repository interfaces.
+2022-04-30 12:36:31.670  INFO 40840 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=49c78a32-92f0-3a17-9d30-64bf3216e37f
+2022-04-30 12:36:32.019  INFO 40840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-30 12:36:32.027  INFO 40840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-30 12:36:32.027  INFO 40840 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-04-30 12:36:32.158  INFO 40840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-30 12:36:32.158  INFO 40840 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1575 ms
+2022-04-30 12:36:32.302  INFO 40840 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-30 12:36:32.353  INFO 40840 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-04-30 12:36:32.512  INFO 40840 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-30 12:36:32.604  INFO 40840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-30 12:36:32.732  INFO 40840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-30 12:36:32.747  INFO 40840 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-30 12:36:33.365  INFO 40840 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-30 12:36:33.370  INFO 40840 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-30 12:36:33.813  WARN 40840 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-30 12:36:34.743  INFO 40840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-30 12:36:34.817  INFO 40840 --- [main] c.n.s.r.NotificationServiceApplication   : Started NotificationServiceApplication in 4.849 seconds (JVM running for 5.66)
+2022-04-30 12:36:40.283  INFO 40840 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-30 12:36:40.283  INFO 40840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-30 12:36:40.284  INFO 40840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-30 12:36:40.585  INFO 40840 --- [http-nio-8080-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 272 ms
+2022-04-30 12:53:17.035  INFO 40840 --- [http-nio-8080-exec-2] c.n.s.r.s.i.MailingServiceImpl           : method "getMailingById" | mailing with id= 1 not found
+2022-04-30 13:35:34.940  WARN 40840 --- [scheduling-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3e7e7e5f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-04-30 13:57:07.465  INFO 40840 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-30 13:57:07.503  INFO 40840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-30 13:57:07.511  INFO 40840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-30 13:57:10.953  INFO 28784 --- [main] c.n.s.r.NotificationServiceApplication   : Starting NotificationServiceApplication using Java 17.0.1 on DESKTOP-E403BVB with PID 28784 (C:\Users\6\Desktop\Spring_way\notification_service\notification_service\target\classes started by 6 in C:\Users\6\Desktop\Spring_way\notification_service\notification_service)
+2022-04-30 13:57:10.955  INFO 28784 --- [main] c.n.s.r.NotificationServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-04-30 13:57:11.630  INFO 28784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-30 13:57:11.688  INFO 28784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 4 JPA repository interfaces.
+2022-04-30 13:57:11.840  INFO 28784 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=49c78a32-92f0-3a17-9d30-64bf3216e37f
+2022-04-30 13:57:12.145  INFO 28784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-30 13:57:12.153  INFO 28784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-30 13:57:12.153  INFO 28784 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-04-30 13:57:12.294  INFO 28784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-30 13:57:12.294  INFO 28784 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1289 ms
+2022-04-30 13:57:12.443  INFO 28784 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-30 13:57:12.492  INFO 28784 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-04-30 13:57:12.611  INFO 28784 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-30 13:57:12.687  INFO 28784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-30 13:57:12.794  INFO 28784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-30 13:57:12.808  INFO 28784 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-30 13:57:13.395  INFO 28784 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-30 13:57:13.401  INFO 28784 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-30 13:57:13.813  WARN 28784 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-30 13:57:14.732  INFO 28784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-30 13:57:14.805  INFO 28784 --- [main] c.n.s.r.NotificationServiceApplication   : Started NotificationServiceApplication in 4.281 seconds (JVM running for 5.052)
+2022-04-30 13:58:05.177  INFO 28784 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-30 13:58:05.177  INFO 28784 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-30 13:58:05.178  INFO 28784 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-30 13:58:05.535  INFO 28784 --- [http-nio-8080-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 321 ms
+2022-04-30 13:58:29.952  INFO 28784 --- [http-nio-8080-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 106 ms
