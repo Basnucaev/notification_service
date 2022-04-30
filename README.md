@@ -20,4 +20,10 @@
 - `git clone https://github.com/Basnucaev/notification_service.git`
 - Подставьте свои значения в `application.properties`
 - Запустите `NotificationServiceApplication.class`
-- Приложене должно быть запущено на локальном сервере `http://localhost:8080/
+- Приложене должно быть запущено на локальном сервере `http://localhost:8080/`
+
+## Документация по API сервиса
+
+Вы можете получить её запустив приложение и перейдя по ссылке `http://localhost:8080/swagger-ui.html`
+
+![swagger-screen-shot](swagger-ui.png)
