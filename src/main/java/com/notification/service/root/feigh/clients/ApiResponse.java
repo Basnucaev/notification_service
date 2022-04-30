@@ -7,8 +7,6 @@ import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Setter
 @Getter
 public class ApiResponse {
     private Integer code;

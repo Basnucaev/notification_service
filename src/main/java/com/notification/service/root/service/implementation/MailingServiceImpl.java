@@ -30,10 +30,10 @@ public class MailingServiceImpl implements MailingService {
     public Mailing getMailingById(Long id) {
         Optional<Mailing> mailing = mailingRepository.findById(id);
         if (mailing.isPresent()) {
-            logger.info("method \"getMailingById\" | returned mailing with id= " + id);
+            logger.info("method \"getMailingById\" | returned mailing with id= {}", id);
             return mailing.get();
         } else {
-            logger.info("method \"getMailingById\" | mailing with id= " + id + " not found");
+            logger.info("method \"getMailingById\" | mailing with id= {} not found", id);
             throw new MailingNotFoundException(id);
         }
     }
@@ -48,7 +48,7 @@ public class MailingServiceImpl implements MailingService {
     public void saveMailing(Mailing mailing) {
         if (mailing.getId() == null) {
             mailingRepository.save(mailing);
-            logger.info("method \"saveMailing\" | mailing saved, assigned id= " + mailing.getId());
+            logger.info("method \"saveMailing\" | mailing saved, assigned id= {}", mailing.getId());
         } else {
             logger.info("method \"saveMailing\" | mailing not saved, mailing already have id");
             throw new EntityNotSavedException("Mailing");
@@ -59,7 +59,7 @@ public class MailingServiceImpl implements MailingService {
     public void updateMailing(Mailing mailing) {
         if (mailing.getId() != null && mailing.getId() != 0) {
             mailingRepository.save(mailing);
-            logger.info("method \"updateMailing\" | mailing with id= " + mailing.getId() + " updated");
+            logger.info("method \"updateMailing\" | mailing with id= {} updated", mailing.getId());
         } else {
             logger.info("method \"updateMailing\" | mailing not updated, mailing has no id");
             throw new EntityNotUpdatedException("Mailing");
@@ -69,7 +69,7 @@ public class MailingServiceImpl implements MailingService {
     @Override
     public void deleteMailingById(Long id) {
         Mailing mailing = getMailingById(id);
-        logger.info("method \"deleteMailingById\" | mailing with id= " + id + " deleted");
+        logger.info("method \"deleteMailingById\" | mailing with id= {} deleted", id);
         mailingRepository.deleteById(id);
     }
 }
