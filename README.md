@@ -20,8 +20,8 @@
 - Склонируйте репозиторий `git clone https://github.com/Basnucaev/notification_service.git`
 - Если у вас есть необхоимость, установите в своей операционной системе переменные среды `DB_USER`, `DB_PASSWORD` для соединения с БД и `LOG_FILE_NAME` для логирования в собственный файл
 - Из корневой папки проекта выполните последовательно команды:
-./mvnw clean install
-./mvnw spring-boot:run
+`./mvnw clean install`
+`./mvnw spring-boot:run`
 - Приложене должно быть запущено на локальном сервере `http://localhost:8080/`
 
 ## Документация по API сервиса
