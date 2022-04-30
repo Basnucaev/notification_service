@@ -17,9 +17,11 @@
 - SwaggerUI страница с информацией о контроллерах
 
 ## Установка приложения
-- `git clone https://github.com/Basnucaev/notification_service.git`
-- Подставьте свои значения в `application.properties`
-- Запустите `NotificationServiceApplication.class`
+- Склонируйте репозиторий `git clone https://github.com/Basnucaev/notification_service.git`
+- Если у вас есть необхоимость, установите в своей операционной системе переменные среды `DB_USER`, `DB_PASSWORD` для соединения с БД и `LOG_FILE_NAME` для логирования в собственный файл
+- Из корневой папки проекта выполните последовательно команды:
+`./mvnw clean install`
+`./mvnw spring-boot:run`
 - Приложене должно быть запущено на локальном сервере `http://localhost:8080/`
 
 ## Документация по API сервиса
@@ -27,3 +29,16 @@
 Вы можете получить её запустив приложение и перейдя по ссылке `http://localhost:8080/swagger-ui.html`
 
 ![swagger-screen-shot](images/swagger-ui.png)
+
+## Выполненные дополнительные задания:
+
+1. Написаны тесты для всех контроллеров и сервисов. 
+
+![tests-screen-shot](images/coverage-report.png)
+
+5. По адресу `http://localhost:8080/swagger-ui.html` открывается такая страница
+
+9. Проблемы со стороны внешнего сервиса не должны влиять на работу внутреннего 
+
+12. Обеспечено подробное логирование
+
