@@ -26,4 +26,4 @@
 
 Вы можете получить её запустив приложение и перейдя по ссылке `http://localhost:8080/swagger-ui.html`
 
-![swagger-screen-shot](swagger-ui.png)
+![swagger-screen-shot](images/swagger-ui.png)
