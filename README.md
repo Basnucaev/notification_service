@@ -18,6 +18,6 @@
 
 ## Установка приложения
 - `git clone https://github.com/Basnucaev/notification_service.git`
-- `Подставьте свои значения в application.properties`
-- `Запустите NotificationServiceApplication.class`
+- Подставьте свои значения в `application.properties`
+- Запустите `NotificationServiceApplication.class`
 - Приложене должно быть запущено на локальном сервере `http://localhost:8080/
