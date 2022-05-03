@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface MailingRepository extends JpaRepository<Mailing, Long> {
 
-    @Query("from Mailing m where m.sentStatus = 'UNSENT' and m.startMailingDate < :current_date")
+    @Query("from Mailing m where m.sentStatus = 'UNSENT' and m.startMailingDate <= :current_date")
     List<Mailing> findAllBySentStatusIsUNSENTAndTimeHasCome(@Param("current_date") LocalDateTime localDateTime);
 }

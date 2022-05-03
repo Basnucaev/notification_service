@@ -86,8 +86,8 @@ public class NotificationServiceImpl implements NotificationService {
         log.info("method \"startMailing\" | mailing with id= {} was updated and finally saved", mailing.getId());
     }
 
-    // каждую минуту проверяет, есть ли рассылки у которых дата начала еще не наступила
-    @Scheduled(fixedRate = 60000)
+    // каждые 5 секунд проверяет БД на наличие не отправленных рассылок
+    @Scheduled(fixedDelay = 5000)
     public void checkForUnsentMailings() {
         List<Mailing> mailings = mailingRepository.findAllBySentStatusIsUNSENTAndTimeHasCome(LocalDateTime.now());
 

@@ -66,8 +66,13 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void deleteClientById(Long id) {
-        getClientById(id);
-        log.info("method \"deleteClientById\" | client with id= {} deleted", id);
-        clientRepository.deleteById(id);
+        Optional<Client> client = clientRepository.findById(id);
+        if (client.isPresent()) {
+            log.info("method \"deleteClientById\" | client with id= {} deleted", id);
+            clientRepository.deleteById(id);
+        } else {
+            log.info("method \"getClientById\" | client with id= {} not found", id);
+            throw new ClientNotFoundException(id);
+        }
     }
 }

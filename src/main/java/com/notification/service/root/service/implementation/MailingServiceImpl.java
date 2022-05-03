@@ -1,14 +1,13 @@
 package com.notification.service.root.service.implementation;
 
 import com.notification.service.root.entity.Mailing;
+import com.notification.service.root.entity.enumeration.SentStatus;
 import com.notification.service.root.exception.EntityNotSavedException;
 import com.notification.service.root.exception.EntityNotUpdatedException;
 import com.notification.service.root.exception.MailingNotFoundException;
 import com.notification.service.root.repository.MailingRepository;
 import com.notification.service.root.service.MailingService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,6 @@ import java.util.Optional;
 @Slf4j
 public class MailingServiceImpl implements MailingService {
     private final MailingRepository mailingRepository;
-    private final Logger logger = LoggerFactory.getLogger(MailingServiceImpl.class);
 
     @Autowired
     public MailingServiceImpl(MailingRepository mailingRepository) {
@@ -30,27 +28,28 @@ public class MailingServiceImpl implements MailingService {
     public Mailing getMailingById(Long id) {
         Optional<Mailing> mailing = mailingRepository.findById(id);
         if (mailing.isPresent()) {
-            logger.info("method \"getMailingById\" | returned mailing with id= {}", id);
+            log.info("method \"getMailingById\" | returned mailing with id= {}", id);
             return mailing.get();
         } else {
-            logger.info("method \"getMailingById\" | mailing with id= {} not found", id);
+            log.info("method \"getMailingById\" | mailing with id= {} not found", id);
             throw new MailingNotFoundException(id);
         }
     }
 
     @Override
     public List<Mailing> getAllMailings() {
-        logger.info("method \"getAllMailings\" | returned list of mailings");
+        log.info("method \"getAllMailings\" | returned list of mailings");
         return mailingRepository.findAll();
     }
 
     @Override
     public void saveMailing(Mailing mailing) {
         if (mailing.getId() == null) {
+            mailing.setSentStatus(SentStatus.UNSENT);
             mailingRepository.save(mailing);
-            logger.info("method \"saveMailing\" | mailing saved, assigned id= {}", mailing.getId());
+            log.info("method \"saveMailing\" | mailing saved, assigned id= {}", mailing.getId());
         } else {
-            logger.info("method \"saveMailing\" | mailing not saved, mailing already have id");
+            log.info("method \"saveMailing\" | mailing not saved, mailing already have id");
             throw new EntityNotSavedException("Mailing");
         }
     }
@@ -59,9 +58,9 @@ public class MailingServiceImpl implements MailingService {
     public void updateMailing(Mailing mailing) {
         if (mailing.getId() != null && mailing.getId() != 0) {
             mailingRepository.save(mailing);
-            logger.info("method \"updateMailing\" | mailing with id= {} updated", mailing.getId());
+            log.info("method \"updateMailing\" | mailing with id= {} updated", mailing.getId());
         } else {
-            logger.info("method \"updateMailing\" | mailing not updated, mailing has no id");
+            log.info("method \"updateMailing\" | mailing not updated, mailing has no id");
             throw new EntityNotUpdatedException("Mailing");
         }
     }
@@ -69,7 +68,7 @@ public class MailingServiceImpl implements MailingService {
     @Override
     public void deleteMailingById(Long id) {
         Mailing mailing = getMailingById(id);
-        logger.info("method \"deleteMailingById\" | mailing with id= {} deleted", id);
+        log.info("method \"deleteMailingById\" | mailing with id= {} deleted", id);
         mailingRepository.deleteById(id);
     }
 }
