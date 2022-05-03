@@ -50,10 +50,11 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void startMailing(List<Client> clients, Mailing mailing) {
+        
         Statistic statistic = new Statistic();
         statistic.setMailing(mailing);
         log.info("method \"startMailing\" | created statistic for current mailing with id= {}", mailing.getId());
-
+        
         if (!clients.isEmpty()) {
             statistic.setAllMessages(clients.size());
             log.info("method \"startMailing\" | clients not empty, assigned statistic all need to sent messages= {}",
@@ -96,6 +97,7 @@ public class NotificationServiceImpl implements NotificationService {
         }
         log.info("method \"checkForUnsentMailings\" | founded mailings whose start time has come and sent status" +
                 " is UNSENT");
+        
         for (Mailing mailing : mailings) {
             String operatorCode = mailing.getMobileOperatorCode();
             List<Client> clients = getClientsWhoseOperatorCodeMatchesMailingOperatorCode(operatorCode);
@@ -136,22 +138,26 @@ public class NotificationServiceImpl implements NotificationService {
         }
     }
 
+    // если дата конца рассылки наступила до отправки всех сообщений, установить что рассылка
+    // не отправлена, сохранить статистику и выйти из метода
     private boolean compareMailingEndDateWithCurrentDate(Mailing mailing, Statistic statistic) {
         long mailingID = mailing.getId();
-
-        // если дата конца рассылки наступила до отправки всех сообщений, установить что рассылка
-        // не отправлена, сохранить статистику и выйти из метода
+        
         if (mailing.getEndMailingDate().compareTo(LocalDateTime.now()) < 0) {
             log.info("method \"startMailing\" | mailing end date earlier than current time, end time: {}",
                     mailing.getEndMailingDate());
+            
             if (statistic.getSentMessages() == 0 && statistic.getUnsentMessages() == 0) {
                 statistic.setUnsentMessages(statistic.getAllMessages());
                 log.info("method \"startMailing\" | mailing end date was incorrect by start, " +
                         "not a single message was sent");
             }
+            
             mailing.setSentStatus(SentStatus.ERROR);
+            
             statisticRepository.save(statistic);
             log.info("method \"startMailing\" | statistic for mailing with id= {} was saved", mailingID);
+            
             mailingRepository.save(mailing);
             log.info("method \"startMailing\" | mailing sent status with id= {} was updated ERROR and finally saved",
                     mailingID);
@@ -165,6 +171,7 @@ public class NotificationServiceImpl implements NotificationService {
         Message message = messageRepository.findMessageByClientIdAndMailingId(client.getId(), mailing.getId());
         log.info("method \"startMailing\" | client with id= {} already got message from mailing with id= {}," +
                 " step up to next client", client.getId(), mailing.getId());
+        
         return message != null && message.isHasBeenSent();
     }
 }
